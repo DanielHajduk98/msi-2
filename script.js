@@ -25,9 +25,154 @@ const c = character(
     '#......' +
     '#######'
 );
+const d = character(
+    '######.' +
+    '#.....#' +
+    '#.....#' +
+    '#.....#' +
+    '#.....#' +
+    '#.....#' +
+    '######.'
+);
+const e = character(
+    '#######' +
+    '#......' +
+    '#......' +
+    '#######' +
+    '#......' +
+    '#......' +
+    '#######'
+);
+const f = character(
+    '#######' +
+    '#......' +
+    '#......' +
+    '#######' +
+    '#......' +
+    '#......' +
+    '#......'
+);
+const g = character(
+    '.#####.' +
+    '#.....#' +
+    '#......' +
+    '#..###.' +
+    '#.....#' +
+    '#.....#' +
+    '.#####.'
+);
+const h = character(
+    '#.....#' +
+    '#.....#' +
+    '#.....#' +
+    '#######' +
+    '#.....#' +
+    '#.....#' +
+    '#.....#'
+);
+const i = character(
+    '...#...' +
+    '.......' +
+    '...#...' +
+    '...#...' +
+    '...#...' +
+    '...#...' +
+    '...#...'
+);
+const j = character(
+    '...#...' +
+    '.......' +
+    '...#...' +
+    '...#...' +
+    '...#...' +
+    '#..#...' +
+    '.##....'
+);
+const k = character(
+    '#...#..' +
+    '#..#...' +
+    '#.#....' +
+    '##.....' +
+    '#.#....' +
+    '#..#...' +
+    '#...#..'
+);
+const l = character(
+    '#......' +
+    '#......' +
+    '#......' +
+    '#......' +
+    '#......' +
+    '#......' +
+    '#######'
+);
+const ł = character(
+    '#......' +
+    '#......' +
+    '#......' +
+    '#......' +
+    '#.#....' +
+    '##.....' +
+    '#######'
+);
+const m = character(
+    '#.....#' +
+    '##...##' +
+    '#.#.#.#' +
+    '#..#..#' +
+    '#.....#' +
+    '#.....#' +
+    '#.....#'
+);
+const n = character(
+    '#.....#' +
+    '##....#' +
+    '#.#...#' +
+    '#..#..#' +
+    '#...#.#' +
+    '#....##' +
+    '#.....#'
+);
+const o = character(
+    '.#####.' +
+    '#.....#' +
+    '#.....#' +
+    '#.....#' +
+    '#.....#' +
+    '#.....#' +
+    '.#####.'
+);
+const u = character(
+    '#.....#' +
+    '#.....#' +
+    '#.....#' +
+    '#.....#' +
+    '#.....#' +
+    '#.....#' +
+    '.#####.'
+);
+const p = character(
+    '######.' +
+    '#.....#' +
+    '#.....#' +
+    '######.' +
+    '#......' +
+    '#......' +
+    '#......'
+);
+const r = character(
+    '######.' +
+    '#.....#' +
+    '#.....#' +
+    '######.' +
+    '#.#....' +
+    '#..#...' +
+    '#...#..'
+);
+
 
 /**
- * Learn the letters A through C.
+ * Learn the chars.
  */
 const net = new brain.NeuralNetwork();
 net.train([{
@@ -47,28 +192,118 @@ net.train([{
         output: {
             c: 1
         }
+    },
+	{
+        input: d,
+        output: {
+            d: 1
+        }
+    },
+	{
+        input: e,
+        output: {
+            e: 1
+        }
+    },
+	{
+        input: f,
+        output: {
+            f: 1
+        }
+    },
+	{
+        input: g,
+        output: {
+            g: 1
+        }
+    },
+	{
+        input: h,
+        output: {
+            h: 1
+        }
+    },
+	{
+        input: i,
+        output: {
+            i: 1
+        }
+    },
+	{
+        input: j,
+        output: {
+            j: 1
+        }
+    },
+	{
+        input: k,
+        output: {
+            k: 1
+        }
+    },
+	{
+        input: l,
+        output: {
+            l: 1
+        }
+    },
+	{
+        input: ł,
+        output: {
+            ł: 1
+        }
+    },
+	{
+        input: m,
+        output: {
+            m: 1
+        }
+    },
+	{
+        input: n,
+        output: {
+            n: 1
+        }
+    },
+	{
+        input: o,
+        output: {
+            o: 1
+        }
+    },
+	{
+        input: u,
+        output: {
+            u: 1
+        }
+    },
+	{
+        input: p,
+        output: {
+            p: 1
+        }
+    },
+	{
+        input: r,
+        output: {
+            r: 1
+        }
     }
 ], {
     log: detail => console.log(detail)
 });
 
-/**
- * Predict the letter A, even with a pixel off.
- */
-const result = brain.likely(character(
-    '.#####.' +
-    '#.....#' +
-    '#.....#' +
-    '###.###' +
-    '#.....#' +
-    '#.....#' +
-    '#.....#'
-), net);
+$(document).ready(function(){
+    console.log(char);
 
-
-console.log(result); // 'a'
-
-
+    $("#button").click(function(){
+        var char = $("#char").val();
+        console.log(char);
+        console.log(character(char));
+        const result = brain.likely(character(char), net);
+        console.log(result);
+    });
+});
 
 /**
  * Turn the # into 1s and . into 0s. for whole string
