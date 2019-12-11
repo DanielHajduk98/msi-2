@@ -293,17 +293,14 @@ net.train([{
     log: detail => console.log(detail)
 });
 
-$(document).ready(function(){
-    console.log(char);
+function perceptron(){
+    var input = document.getElementById('input').value;
 
-    $("#button").click(function(){
-        var char = $("#char").val();
-        console.log(char);
-        console.log(character(char));
-        const result = brain.likely(character(char), net);
-        console.log(result);
-    });
-});
+    document.getElementById("result").innerText = brain.likely(character(
+        input
+    ), net);
+}
+
 
 /**
  * Turn the # into 1s and . into 0s. for whole string
@@ -312,6 +309,7 @@ $(document).ready(function(){
  */
 function character(string) {
     return string
+        .replace(/(\r\n|\n|\r)/gm,"")
         .trim()
         .split('')
         .map(integer);
@@ -325,4 +323,8 @@ function character(string) {
 function integer(character) {
     if ('#' === character) return 1;
     return 0;
+}
+
+function showIterations() {
+
 }

@@ -6,20 +6,61 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" href="bulma.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 </head>
 <body>
-<label for="char">Your character</label><textarea rows="4" cols="50" id="char"></textarea>
-<div>
-    <button id="button">button</button>
-</div>
+<header class="hero is-primary is-bold">
+    <section class="hero-body is-primary" style="height: 100vh; display: flex; align-items: center; justify-content: space-evenly">
+        <div>
+            <div class="field">
+                <textarea id="input" style="font-family: 'DejaVu Sans Mono'; height: auto; width: 110px" class="input" name="character" cols="7" rows="7">
+.......
+#......
+#.....#
+#######
+#.....#
+#.....#
+#.....#</textarea>
+            </div>
+            <div class="field">
+                <button class="button is-success" onclick="perceptron()">Prześlij</button>
+            </div>
+        </div>
+        <div>
+            <h1 class="title" style="font-size: 150px">=</h1>
+        </div>
+        <div>
+            <h1 id="result" class="title" style="font-size: 150px">?</h1>
+        </div>
+    </section>
+    <footer class="hero-foot">
+        <div class="hero is-success is-bold">
+            <div class="hero-body has-text-centered">
+                <h1 class="title">
+                    Rozpoznawanie znaków
+                </h1>
+                <h1 class="subtitle">
+                    Daniel Hajduk, Maciej Gorgoń
+                </h1>
+            </div>
+            <div class="hero-foot has-text-centered">
+                <h4 class="subtitle">
+                    # jest traktowana jako piksel znaku
+                    <br>
+                    . jest traktowana jako puste miejsce znaku
+                </h4>
+                <div class="level-item" style="display: flex; justify-content: center">
+                   <a href="https://github.com/BrainJS/brain.js" style="text-decoration: none; color: white" class="is-inline">Projekt korzysta z biblioteki brain.js <i class="fas fa-link"></i></a>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+</header>
 
 <!--Scripts-->
 <script src="brain.js"></script>
-<script
-        src="https://code.jquery.com/jquery-3.4.1.min.js"
-        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-        crossorigin="anonymous"></script>
 <script src="script.js"></script>
-
 </body>
 </html>

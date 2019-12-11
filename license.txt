@@ -1,0 +1,10 @@
+This project uses:
+
+*fontawesome icons
+https://fontawesome.com/
+
+*brain.js library
+https://brain.js.org/#/
+
+*bulma css framework
+https://bulma.io/
